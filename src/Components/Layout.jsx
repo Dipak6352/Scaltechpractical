@@ -20,43 +20,35 @@ const Layout = ({ groups }) => {
   const [levelOfInterest, setLevelOfInterest] = useState("");
 
   useEffect(() => {
-    // Retrieve form data from localStorage
     const storedData = JSON.parse(localStorage.getItem("formData")) || {};
-   
     setContactData(storedData["Contact Information"] || {});
   }, []);
 
   const handleHighestClick = () => {
     const storedData = JSON.parse(localStorage.getItem("formData")) || {};
-    const qualification =
-      storedData["Schooling Information"] ||
-    setHighestQualification(qualification);
+    const qualificationData = storedData["Schooling Information"]?.qualification || "No qualification available";
+    setHighestQualification(qualificationData);
     setShowHighestModal(true);
   };
 
   const handleGraduationClick = () => {
     const storedData = JSON.parse(localStorage.getItem("formData")) || {};
-    const year =
-      storedData["Schooling Information"] ||
-      "No graduation year data available";
-    setGraduationYear(year);
+    const graduationData = storedData["Schooling Information"]?.graduationYear || "No graduation year data available";
+    setGraduationYear(graduationData);
     setShowGraduationModal(true);
   };
 
   const handleSkillsClick = () => {
     const storedData = JSON.parse(localStorage.getItem("formData")) || {};
-    const skillsData =
-      storedData["Employment-information"] || "No skills data available";
+    const skillsData = storedData["Employment-information"]?.skills[1] || ["No skills data available"];
     setSkills(skillsData);
     setShowSkillsModal(true);
   };
 
   const handleInterestClick = () => {
     const storedData = JSON.parse(localStorage.getItem("formData")) || {};
-    const interest =
-      storedData["Hobbies and Interests"] ||
-      "No level of interest data available";
-    setLevelOfInterest(interest);
+    const interestData = storedData["Hobbies and Interests"]?.techInterest || "No tech interest data available";
+    setLevelOfInterest(interestData);
     setShowInterestModal(true);
   };
 
@@ -188,9 +180,9 @@ const Layout = ({ groups }) => {
                 </div>
                 <div className="modal-body">
                   <p className="text-warning fw-medium">
-                    your qualification is{" "}
+                    Your qualification is{" "}
                     <span className="ms-2 text-danger">
-                      {highestQualification.qualification}
+                      {highestQualification}
                     </span>
                   </p>
                 </div>
@@ -228,10 +220,8 @@ const Layout = ({ groups }) => {
                 </div>
                 <div className="modal-body">
                   <p className="text-warning fw-medium">
-                    your passout year is{" "}
-                    <span className="ms-2 text-danger">
-                      {highestQualification.graduationYear}
-                    </span>
+                    Your graduation year is{" "}
+                    <span className="ms-2 text-danger">{graduationYear}</span>
                   </p>
                 </div>
                 <div className="modal-footer">
@@ -268,8 +258,8 @@ const Layout = ({ groups }) => {
                 </div>
                 <div className="modal-body">
                   <p className="text-warning fw-medium">
-                    your skills is{" "}
-                    <span className="ms-2 text-danger">{skills[1]}</span>
+                    Your skills are{" "}
+                    <span className="ms-2 text-danger">{skills.join(", ")}</span>
                   </p>
                 </div>
                 <div className="modal-footer">
@@ -306,10 +296,9 @@ const Layout = ({ groups }) => {
                 </div>
                 <div className="modal-body">
                   <p className="text-warning fw-medium">
-                    {" "}
-                    your tech interest is
+                    Your tech interest level is{" "}
                     <span className="text-danger ms-2">
-                      {levelOfInterest.techInterest}/10
+                      {levelOfInterest}/10
                     </span>
                   </p>
                 </div>
