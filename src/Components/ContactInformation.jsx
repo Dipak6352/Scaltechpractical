@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure to import Bootstrap CSS
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ContactInformation = () => {
   const [contactData, setContactData] = useState({});
 
   useEffect(() => {
     // Retrieve form data from localStorage
-    const storedData = JSON.parse(localStorage.getItem('formData')) || {};
+    const storedData = JSON.parse(localStorage.getItem("formData")) || {};
     // Extract only the Contact Information data
-    setContactData(storedData['Contact Information'] || {});
+    setContactData(storedData["Contact Information"] || {});
   }, []);
 
   return (
@@ -24,7 +24,11 @@ const ContactInformation = () => {
           </thead>
           <tbody>
             {Object.entries(contactData).map(([key, value], index) => (
-              <tr style={{fontSize:"12px"}} className=' fw-medium' key={index}>
+              <tr
+                style={{ fontSize: "12px" }}
+                className=" fw-medium"
+                key={index}
+              >
                 <td>{key}</td>
                 <td>{value}</td>
               </tr>

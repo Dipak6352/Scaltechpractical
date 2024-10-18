@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure to import Bootstrap CSS
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Make sure to import Bootstrap CSS
 
 const EmploymentInformation = () => {
   const [employmentData, setEmploymentData] = useState({});
 
   useEffect(() => {
     // Retrieve form data from localStorage
-    const storedData = JSON.parse(localStorage.getItem('formData')) || {};
-    // Extract only the Employment Information data
-    setEmploymentData(storedData['Employment Details'] || {});
+    const storedData = JSON.parse(localStorage.getItem("formData")) || {};
+
+    setEmploymentData(storedData["Employment Details"] || {});
   }, []);
 
   return (
@@ -24,7 +24,11 @@ const EmploymentInformation = () => {
           </thead>
           <tbody>
             {Object.entries(employmentData).map(([key, value], index) => (
-              <tr style={{fontSize:"12px"}} className=' fw-medium' key={index}>
+              <tr
+                style={{ fontSize: "12px" }}
+                className=" fw-medium"
+                key={index}
+              >
                 <td>{key}</td>
                 <td>{value}</td>
               </tr>

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Make sure to import Bootstrap CSS
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Make sure to import Bootstrap CSS
 
 const HobbiesAndInterests = () => {
   const [hobbiesData, setHobbiesData] = useState({});
 
   useEffect(() => {
     // Retrieve form data from localStorage
-    const storedData = JSON.parse(localStorage.getItem('formData')) || {};
-    // Extract only the Hobbies and Interests data
-    setHobbiesData(storedData['Hobbies and Interests'] || {});
+    const storedData = JSON.parse(localStorage.getItem("formData")) || {};
+
+    setHobbiesData(storedData["Hobbies and Interests"] || {});
   }, []);
 
   return (
@@ -17,14 +17,18 @@ const HobbiesAndInterests = () => {
       {Object.keys(hobbiesData).length > 0 ? (
         <table className="table table-bordered table-striped">
           <thead>
-            <tr >
+            <tr>
               <th>Field</th>
               <th>Value</th>
             </tr>
           </thead>
           <tbody>
             {Object.entries(hobbiesData).map(([key, value], index) => (
-              <tr style={{fontSize:"12px"}} className=' fw-medium' key={index}>
+              <tr
+                style={{ fontSize: "12px" }}
+                className=" fw-medium"
+                key={index}
+              >
                 <td>{key}</td>
                 <td>{value}</td>
               </tr>

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import formConfig from "./formConfigure.json"; // Import the JSON
 
-import ContactInformation from "./Components/ContactInformation";
-import Layout from "./Components/Layout";
+
+import ContactInformation from "./Components/ContactInformation"; 
+import Layout from "./Components/Layout"; 
 import "./App.css";
 import DynamicForm from "./Components/DynamicForm";
 import SchoolingInformation from "./Components/SchoolingInformation";
