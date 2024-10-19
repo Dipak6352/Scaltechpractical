@@ -1,21 +1,24 @@
 {
   "name": "dynamicform",
   "private": true,
+  "homepage": "https://Dipak6352.github.io/Scaltechpractical",
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dipak6352.github.io/scaletectpractical",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+ 
+"scripts": {
+  "dev": "vite", 
+  "build": "vite build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+
+,
+
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "bootstrap": "^5.3.3",
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
@@ -29,7 +32,6 @@
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
-    "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
     "vite": "^5.4.8"
   }
